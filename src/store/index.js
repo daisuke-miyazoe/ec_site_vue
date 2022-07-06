@@ -13,7 +13,7 @@ export default createStore({
   mutations: {
     initializeStore(state) {
       if (localStorage.getItem('cart')) {
-        state.cart = JSON.parse(localStorage.getItem)
+        state.cart = JSON.parse(localStorage.getItem('cart'))
       } else {
         localStorage.getItem('cart', JSON.stringify(state.cart))
       }
@@ -28,6 +28,9 @@ export default createStore({
       }
 
       localStorage.setItem('cart', JSON.stringify(state.cart))
+    },
+    setIsLoading(state, status) {
+      state.isloading = status
     }
   },
   actions: {
